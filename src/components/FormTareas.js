@@ -1,5 +1,7 @@
 import React from 'react'
 import useForm from '../hooks/useForm'
+import {v4 as uuidv4} from 'uuid'
+
 
 function FormTareas({dispatch}) {
 
@@ -13,7 +15,7 @@ function FormTareas({dispatch}) {
         if(tareaRealizar.trim().length <= 0 ) return
 
         const nuevaTarea = {
-            id: new Date().getTime(),
+            id:  uuidv4(),
             descripcion: tareaRealizar,
             completa: false,
         }

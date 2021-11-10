@@ -11,13 +11,11 @@ function TodoApp() {
 
   const [tareas, dispatch] = useReducer(tareasReducer, [], init);
 
-  console.log(tareas.length)
-
   useEffect(() => {
     localStorage.setItem('tareas', JSON.stringify(tareas))
   }, [tareas])
 
-  console.log(tareas)
+ 
 
   return (
     <>

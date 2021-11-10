@@ -4,7 +4,7 @@ import ItemTarea from './ItemTarea'
 function ContenedorTareas({tareas, dispatch}) {
 
     console.log(tareas)
-
+    
     return (
         <>
             <h4>Lista de Tareas</h4>

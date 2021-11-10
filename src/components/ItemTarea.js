@@ -1,6 +1,8 @@
-import React from 'react'
+import React,{ useEffect } from 'react'
 
 function ItemTarea({tarea, index, dispatch}) {
+
+
 
     const eliminarTarea = (id) => {
         const action = {
@@ -11,27 +13,34 @@ function ItemTarea({tarea, index, dispatch}) {
         dispatch(action)
     }
 
-    const tareaCompleta = (id) => {
+    const tareaCompleta = (id, e) => {
+        if(e.target.checked){
+            const action = {
+                type: 'completa',
+                payload: id,
+            }
 
-    
-        const action = {
-            type: 'completa',
-            payload: id,
+            dispatch(action)
+        }else{
+            const action = {
+                type: 'completa',
+                payload: id,
+            }
+            dispatch(action)
+
         }
-
-        dispatch(action)
     }
 
     return (
         <ul className="list-group">
-            <li 
+            <li
                 className={`list-group-item d-flex align-items-center py-2 ${tarea.completa ? 'complete' : null} `}
-                onClick={() => tareaCompleta(tarea.id)}>
-                {/* <input 
+            >
+                <input 
                     type="checkbox"
-                    name="complete"
-                    onClick={() => tareaCompleta(tarea.id)}
-                /> */}
+                    onChange={(e) => tareaCompleta(tarea.id, e)}
+                    
+                />
                 <p className="m-0 cursor-pointer"><span className="fw-bold">{index + 1}. </span>{tarea.descripcion}</p>
                 <button
                     onClick={() => eliminarTarea(tarea.id)}
