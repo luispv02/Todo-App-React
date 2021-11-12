@@ -15,21 +15,21 @@ function TodoApp() {
     localStorage.setItem('tareas', JSON.stringify(tareas))
   }, [tareas])
 
- 
+  console.log(tareas.length)
 
   return (
     <>
-      <h1 className="text-center py-3">Administrador de Tareas</h1>
+      <h1 className="text-center py-3 mt-md-3 mb-md-5">Administrador de Tareas</h1>
 
       <div className="container">
         <div className="row px-3">
-          <div className="col-12">
+          <div className={`col-12 ${tareas.length === 0 ? 'col-md-8 m-auto' : 'col-md-5'}`}>
             <FormTareas 
               dispatch={dispatch}
             />
           </div>
 
-          <div className="col-12 mt-5">
+          <div className="col-12 col-md-6 col-lg-6 mt-5 m-md-0 contenedor-tareas">
             {tareas.length !== 0 &&
               <ContenedorTareas 
                 tareas={tareas}
@@ -39,8 +39,6 @@ function TodoApp() {
           </div>
         </div>
       </div>
-
-    
     </>
   );
 }

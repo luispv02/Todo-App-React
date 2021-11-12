@@ -1,25 +1,24 @@
-import React,{ useEffect } from 'react'
+
 
 function ItemTarea({tarea, index, dispatch}) {
-
-
 
     const eliminarTarea = (id) => {
         const action = {
             type: 'eliminar',
             payload: id,
         }
-
         dispatch(action)
     }
 
     const tareaCompleta = (id, e) => {
+
+        console.log(e.target.checked)
+
         if(e.target.checked){
             const action = {
                 type: 'completa',
                 payload: id,
             }
-
             dispatch(action)
         }else{
             const action = {
@@ -27,10 +26,9 @@ function ItemTarea({tarea, index, dispatch}) {
                 payload: id,
             }
             dispatch(action)
-
         }
     }
-
+   
     return (
         <ul className="list-group">
             <li
@@ -39,6 +37,7 @@ function ItemTarea({tarea, index, dispatch}) {
                 <input 
                     type="checkbox"
                     onChange={(e) => tareaCompleta(tarea.id, e)}
+                    checked={tarea.completa}
                     
                 />
                 <p className="m-0 cursor-pointer"><span className="fw-bold">{index + 1}. </span>{tarea.descripcion}</p>

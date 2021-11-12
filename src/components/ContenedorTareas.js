@@ -1,13 +1,14 @@
 import React from 'react'
 import ItemTarea from './ItemTarea'
 
+
 function ContenedorTareas({tareas, dispatch}) {
 
-    console.log(tareas)
+  console.log(tareas)
     
     return (
         <>
-            <h4>Lista de Tareas</h4>
+            <h4>Tareas a Realizar</h4>
 
             {tareas.map((tarea, index) => (
                 <ItemTarea 
