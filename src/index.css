@@ -8,11 +8,15 @@ body{
   
 }
 
-
 input[type="checkbox"]{
   margin-right: 15px;
   width: 15px;
   height: 15px;
+}
+
+p{
+  width: 86%;
+  overflow-y: overlay;
 }
 
 .btn-danger{
